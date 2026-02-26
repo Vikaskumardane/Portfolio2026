@@ -1,0 +1,10 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:is(.dark *));
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 4rem;
+  }
+}
