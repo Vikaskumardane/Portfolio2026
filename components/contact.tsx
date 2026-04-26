@@ -14,13 +14,14 @@ export function Contact() {
     setIsSubmitting(true);
 
     try {
-      const response = await fetch("/api/contact", {
+      const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
           Accept: "application/json",
         },
         body: JSON.stringify({
+          access_key: "c7270fd3-7171-4888-808f-2efb8b152f74",
           name: formData.name,
           email: formData.email,
           message: formData.message,
