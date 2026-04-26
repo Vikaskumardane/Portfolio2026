@@ -12,12 +12,34 @@ export function Contact() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1500));
-    setIsSubmitting(false);
-    setIsSuccess(true);
-    setFormData({ name: "", email: "", message: "" });
-    setTimeout(() => setIsSuccess(false), 3000);
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+        }),
+      });
+
+      const result = await response.json();
+      if (result.success) {
+        setIsSuccess(true);
+        setFormData({ name: "", email: "", message: "" });
+        setTimeout(() => setIsSuccess(false), 5000);
+      } else {
+        alert("Something went wrong! Please try again.");
+      }
+    } catch (error) {
+      alert("Something went wrong! Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -51,6 +73,10 @@ export function Contact() {
             className="bg-zinc-50 dark:bg-zinc-900 rounded-3xl p-8 shadow-xl border border-zinc-200 dark:border-zinc-800"
           >
             <form onSubmit={handleSubmit} className="space-y-6">
+              {/* Web3Forms hidden fields for security and configuration */}
+              <input type="hidden" name="subject" value="New Contact Form Submission from Portfolio" />
+              <input type="checkbox" name="botcheck" className="hidden" style={{ display: 'none' }} />
+
               <div>
                 <label htmlFor="name" className="block text-sm font-medium text-zinc-700 dark:text-zinc-300 mb-2">
                   Name
@@ -58,6 +84,7 @@ export function Contact() {
                 <input
                   type="text"
                   id="name"
+                  name="name"
                   required
                   suppressHydrationWarning
                   value={formData.name}
@@ -74,6 +101,7 @@ export function Contact() {
                 <input
                   type="email"
                   id="email"
+                  name="email"
                   required
                   suppressHydrationWarning
                   value={formData.email}
@@ -89,6 +117,7 @@ export function Contact() {
                 </label>
                 <textarea
                   id="message"
+                  name="message"
                   required
                   suppressHydrationWarning
                   rows={4}
@@ -145,8 +174,8 @@ export function Contact() {
                   </div>
                   <div>
                     <h4 className="font-semibold text-zinc-900 dark:text-white">Email</h4>
-                    <a href="mailto:vikasdemo@gmail.com" className="text-zinc-500 hover:text-emerald-500 transition-colors">
-                      vikasdemo@gmail.com
+                    <a href="mailto:vikasdane06@gmail.com" className="text-zinc-500 hover:text-emerald-500 transition-colors">
+                      vikasdane06@gmail.com
                     </a>
                   </div>
                 </div>
@@ -157,8 +186,8 @@ export function Contact() {
                   </div>
                   <div>
                     <h4 className="font-semibold text-zinc-900 dark:text-white">Phone</h4>
-                    <a href="tel:+919988776645" className="text-zinc-500 hover:text-emerald-500 transition-colors">
-                      +91-9988776645
+                    <a href="tel:+918668284872" className="text-zinc-500 hover:text-emerald-500 transition-colors">
+                      +91-8668284872
                     </a>
                   </div>
                 </div>
@@ -179,7 +208,7 @@ export function Contact() {
               <h3 className="text-xl font-bold text-zinc-900 dark:text-white mb-4">Connect</h3>
               <div className="flex flex-wrap gap-4">
                 <a
-                  href="https://linkedin.com/in/vikaskumar-dane"
+                  href="https://linkedin.com/in/vikaskumardane"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="p-3 bg-zinc-100 dark:bg-zinc-900 rounded-xl text-zinc-600 dark:text-zinc-400 hover:text-emerald-500 dark:hover:text-emerald-400 hover:bg-emerald-50 dark:hover:bg-emerald-900/20 transition-all"
@@ -187,7 +216,7 @@ export function Contact() {
                   <Linkedin className="w-6 h-6" />
                 </a>
                 <a
-                  href="https://github.com/vikaskumardane"
+                  href="https://github.com/Vikaskumardane"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="p-3 bg-zinc-100 dark:bg-zinc-900 rounded-xl text-zinc-600 dark:text-zinc-400 hover:text-emerald-500 dark:hover:text-emerald-400 hover:bg-emerald-50 dark:hover:bg-emerald-900/20 transition-all"
@@ -195,7 +224,7 @@ export function Contact() {
                   <Github className="w-6 h-6" />
                 </a>
                 <a
-                  href="https://twitter.com"
+                  href="https://x.com/vikasdane06"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="p-3 bg-zinc-100 dark:bg-zinc-900 rounded-xl text-zinc-600 dark:text-zinc-400 hover:text-emerald-500 dark:hover:text-emerald-400 hover:bg-emerald-50 dark:hover:bg-emerald-900/20 transition-all"
@@ -203,7 +232,7 @@ export function Contact() {
                   <Twitter className="w-6 h-6" />
                 </a>
                 <a
-                  href="https://instagram.com"
+                  href="https://www.instagram.com/vikas_dev06/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="p-3 bg-zinc-100 dark:bg-zinc-900 rounded-xl text-zinc-600 dark:text-zinc-400 hover:text-emerald-500 dark:hover:text-emerald-400 hover:bg-emerald-50 dark:hover:bg-emerald-900/20 transition-all"
@@ -211,7 +240,7 @@ export function Contact() {
                   <Instagram className="w-6 h-6" />
                 </a>
                 <a
-                  href="https://linktr.ee"
+                  href="https://linktr.ee/DevCodeByVikas?utm_source=linktree_profile_share&ltsid=9aa5e64a-4444-4f17-999e-4ac0eb489955"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="p-3 bg-zinc-100 dark:bg-zinc-900 rounded-xl text-zinc-600 dark:text-zinc-400 hover:text-emerald-500 dark:hover:text-emerald-400 hover:bg-emerald-50 dark:hover:bg-emerald-900/20 transition-all"

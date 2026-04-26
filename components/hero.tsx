@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useMotionValue, useSpring, useTransform } from "motion/react";
-import { ArrowRight, Terminal, Cloud, Server, Code2, Database, Box, Network, GitBranch } from "lucide-react";
+import { ArrowRight, Terminal, Cloud, Server, Code2, Database, Box, Network, GitBranch, FileText } from "lucide-react";
 import { useEffect, useState } from "react";
 
 export function Hero() {
@@ -98,6 +98,15 @@ export function Hero() {
                 className="inline-flex items-center justify-center px-6 py-3 text-base font-medium text-zinc-700 dark:text-zinc-200 bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 hover:bg-zinc-50 dark:hover:bg-zinc-700 rounded-lg transition-colors"
               >
                 Contact Me
+              </a>
+              <a
+                href="https://drive.google.com/file/d/14W7cTCuSq1plpS9fgok3xy0Y56HnvTKN/view?usp=sharing"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center px-6 py-3 text-base font-medium text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-900/20 border border-emerald-200 dark:border-emerald-800/30 hover:bg-emerald-100 dark:hover:bg-emerald-900/40 rounded-lg transition-colors"
+              >
+                <FileText className="mr-2 h-5 w-5" />
+                View Resume
               </a>
             </div>
           </motion.div>

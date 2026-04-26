@@ -6,40 +6,49 @@ import Image from "next/image";
 
 const projects = [
   {
-    title: "Serverless AWS Infrastructure",
-    description: "Architected and deployed a large-scale multi-account, multi-region AWS application using Terraform. Managed Lambda functions, API Gateway, S3, Route 53, Step Functions, and Secrets Manager.",
-    tech: ["AWS", "Terraform", "Lambda", "API Gateway", "Step Functions"],
-    outcome: "Reduced execution time by 25% and ensured 99.9% deployment success rate.",
-    github: "#",
-    demo: "#",
-    image: "https://picsum.photos/seed/aws/800/600",
+    title: "Serverless AWS Infrastructure (Multi-Region)",
+    description: "Built and managed a large-scale serverless application spanning multi-account, multi-region AWS environments (dev, perf, training, prod) using Terraform IaC. Implemented CloudWatch dashboards and alerting.",
+    tech: ["AWS Lambda", "Terraform", "API Gateway", "Step Functions", "CloudWatch"],
+    outcome: "Maintained 99%+ production availability and robust disaster recovery.",
+    github: "https://github.com/Vikaskumardane",
+    demo: "https://medium.com/@Vikaskumar_Dane/building-production-ready-aws-architecture-secure-web-app-with-multi-az-high-availability-1ecf06ef1380",
+    image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=800&auto=format&fit=crop",
   },
   {
-    title: "Enterprise Cloud Migration (ROSA)",
-    description: "Collaborated on enterprise cloud migration to Red Hat OpenShift on AWS. Established agile infrastructure and deployment workflows using Kubernetes and Prometheus.",
-    tech: ["ROSA", "Kubernetes", "Prometheus", "AWS Code Pipeline"],
-    outcome: "Enhanced deployment frequency by 35% and improved system reliability.",
-    github: "#",
-    demo: "#",
-    image: "https://picsum.photos/seed/k8s/800/600",
+    title: "CI/CD Pipeline with Jenkins & Docker",
+    description: "Built an end-to-end CI/CD pipeline for a Flask web application using Jenkins and Docker, automating build, test, and deployment stages. Containerized the application for environment parity.",
+    tech: ["Jenkins", "Docker", "Flask", "AWS EC2", "CI/CD"],
+    outcome: "Reduced manual release effort to near zero with consistent dev/prod parity.",
+    github: "https://github.com/Vikaskumardane",
+    demo: "https://medium.com/@Vikaskumar_Dane/deploy-your-first-jenkins-app-on-aws-ec2-a-hands-on-guide-for-beginners-49121c0622e4",
+    image: "https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?q=80&w=800&auto=format&fit=crop",
   },
   {
-    title: "Scalable Microservices API",
-    description: "Designed and optimized scalable RESTful APIs and Spring Boot microservices. Implemented Snyk security automation in CI/CD pipeline.",
-    tech: ["Spring Boot", "REST API", "Snyk", "GitHub Actions"],
-    outcome: "Improved API efficiency by 20% and reduced critical vulnerabilities by 40%.",
-    github: "#",
-    demo: "#",
-    image: "https://picsum.photos/seed/api/800/600",
+    title: "Blockchain NFT Marketplace",
+    description: "Architected a fully decentralized NFT Marketplace on blockchain, enabling peer-to-peer minting, listing, and trading of non-fungible tokens without centralized intermediaries.",
+    tech: ["Blockchain", "Solidity", "Smart Contracts", "Web3.js", "React"],
+    outcome: "Published at ICCIP 2024 and indexed in Scopus-ranked SSRN Electronic Journal.",
+    github: "https://github.com/Vikaskumardane",
+    demo: "https://www.scribd.com/document/691452014/16-Blockchain-Based-NFT-Marketplace-1",
+    image: "https://images.unsplash.com/photo-1621416894569-0f39ed31d247?q=80&w=800&auto=format&fit=crop",
   },
   {
-    title: "High-Converting E-Commerce Platform",
-    description: "Built high-converting e-commerce interfaces using modern frontend technologies and SEO optimization.",
-    tech: ["React", "Node.js", "Tailwind CSS", "Express"],
-    outcome: "Increased sales conversions by 25% and generated 150+ additional organic visitors per month.",
-    github: "#",
-    demo: "#",
-    image: "https://picsum.photos/seed/ecommerce/800/600",
+    title: "YouTube Clone – React & Tailwind",
+    description: "Full-featured YouTube clone built with React and Tailwind CSS, integrating the YouTube Data API for real-time video feeds, search functionality, and responsive video playback.",
+    tech: ["React", "Tailwind CSS", "YouTube API", "JavaScript"],
+    outcome: "Delivered a fully responsive application with real-time video feed integration.",
+    github: "https://github.com/Vikaskumardane",
+    demo: "https://youtube-clone-vikas.vercel.app/",
+    image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=800&auto=format&fit=crop",
+  },
+  {
+    title: "Travelling Agency Landing Page",
+    description: "Built a fully responsive travelling agency landing page using plain HTML, CSS, and JavaScript — focused on clean UI, smooth animations, and mobile-first design.",
+    tech: ["HTML", "CSS", "JavaScript", "Responsive Design"],
+    outcome: "Created a highly optimized, cross-browser compatible interface.",
+    github: "https://github.com/Vikaskumardane",
+    demo: "https://zippytravels.netlify.app/",
+    image: "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?q=80&w=800&auto=format&fit=crop",
   },
 ];
 
@@ -66,7 +75,7 @@ export function Projects() {
           />
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
             <motion.div
               key={index}
@@ -74,9 +83,9 @@ export function Projects() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="group relative bg-white dark:bg-zinc-950 rounded-3xl overflow-hidden shadow-xl border border-zinc-200 dark:border-zinc-800 hover:border-emerald-500/50 transition-all duration-500 hover:-translate-y-2"
+              className="group relative bg-white dark:bg-zinc-950 rounded-3xl overflow-hidden shadow-xl border border-zinc-200 dark:border-zinc-800 hover:border-emerald-500/50 transition-all duration-500 hover:-translate-y-2 flex flex-col"
             >
-              <div className="relative h-64 overflow-hidden">
+              <div className="relative h-48 overflow-hidden">
                 <div className="absolute inset-0 bg-zinc-900/20 dark:bg-zinc-900/40 z-10 group-hover:bg-transparent transition-colors duration-500" />
                 <Image
                   src={project.image}
@@ -86,13 +95,13 @@ export function Projects() {
                   className="object-cover transform group-hover:scale-110 transition-transform duration-700"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-zinc-900 via-zinc-900/20 to-transparent z-20 opacity-80" />
-                <div className="absolute bottom-6 left-6 z-30">
-                  <h3 className="text-2xl font-bold text-white mb-2">{project.title}</h3>
+                <div className="absolute bottom-6 left-6 z-30 right-6">
+                  <h3 className="text-xl font-bold text-white mb-0 leading-tight">{project.title}</h3>
                 </div>
               </div>
 
-              <div className="p-8">
-                <p className="text-zinc-600 dark:text-zinc-300 mb-6 leading-relaxed">
+              <div className="p-6 flex flex-col flex-grow">
+                <p className="text-zinc-600 dark:text-zinc-300 mb-6 leading-relaxed text-sm line-clamp-3">
                   {project.description}
                 </p>
 
